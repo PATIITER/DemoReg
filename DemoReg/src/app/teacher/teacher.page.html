@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>teacher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row>
+    <ion-col>
+      <ion-item lines="none">
+        <ion-button slot="end" size="default" (click)="GoPageAddClass(idTeacher)">
+          + เพิ่ม
+        </ion-button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-card class="ion-padding">
+    <ion-row>
+      <ion-col text-center>
+        <h1>รายการวิชา</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-grid>
+
+      <ion-row>
+       
+          <table class="fixed_header">
+            <thead>
+              <tr>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th width="5%">ดูข้อมูล</th>
+               
+
+              </tr>
+            </thead>
+            <!-- <tbody *ngIf="dataTeacher != null">
+              <tr *ngFor="let d of dataTeacher">
+                
+                <td>{{ d.idTeacher }}</td>
+                <td>{{ d.nameTeacher }}</td>
+                <td>{{ d.class }}</td>
+                
+                
+              </tr>
+            </tbody> -->
+            <tbody *ngIf="teacherbyid != null">
+              <tr  *ngFor="let d of teacherbyid.class">
+                
+                
+                <td>{{ d.idClass }}</td>
+                <td>{{ d.nameClass}}</td>
+                <td>
+                  <ion-button color="secondary" >ดูข้อมูล</ion-button>
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+       
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+</ion-content>
