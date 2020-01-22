@@ -12,11 +12,17 @@ namespace DemoRegApi.Controllers
 
     public class ClassController : ControllerBase
     {
+        public static List<Student> DataStudent = new List<Student>
+        {
+            new Student { IdStudent = "001", NameStudent = "abc", Score= "99", Username = "admin1", Password = "12356" },
+            new Student { IdStudent = "002", NameStudent = "abc", Score= "99", Username = "admin1", Password = "12356" },
+            new Student{ IdStudent = "003", NameStudent = "abc", Score= "99", Username = "admin1", Password = "12356" }
+        };
         public static List<Class> DataClass = new List<Class>
         {
-            new Class { IdClass = "001", NameClass = " Business Administration" },
-            new Class { IdClass = "002", NameClass = "Computer Engineering" },
-            new Class { IdClass = "3", NameClass = "International Business" },
+            new Class { IdClass = "001", NameClass = " Business Administration",students = DataStudent.ToArray() },
+            new Class { IdClass = "002", NameClass = "Computer Engineering",students = DataStudent.ToArray()  },
+            new Class { IdClass = "003", NameClass = "International Business" ,students = DataStudent.ToArray() },
 
         };
 

@@ -10,31 +10,46 @@ import { dataTeacher } from 'Models/teacher';
 })
 export class TeacherPage implements OnInit {
 
-  dataTeacher:dataTeacher;
-  getid:string;
-  teacherbyid:dataTeacher;
-
+  dataTeacher: dataTeacher;
+  getid: string;
+  teacherbyid: dataTeacher;
+t:any;
 
   constructor(public callapi: CallApiService,
-     public router: Router,
-     public activated:ActivatedRoute) { 
+    public router: Router,
+    public activated: ActivatedRoute) {
 
-      this.getid = activated.snapshot.paramMap.get('_id');
-      console.log(this.getid);
-      callapi.GetdataTeacherId(this.getid).subscribe(it =>{
-        // console.log(it);
-        this.teacherbyid = it;
-        console.log(this.teacherbyid);
-  
-        console.log(this.teacherbyid.class);
-        
-      });
+    this.getid = activated.snapshot.paramMap.get('_id');
+    console.log(this.getid);
+    callapi.GetdataTeacherId(this.getid).subscribe(it => {
+      // console.log(it);
+      this.teacherbyid = it;
+      console.log(this.teacherbyid);
+
+      console.log(this.teacherbyid.class);
+      console.log(this.teacherbyid.idTeacher);
+      
+      
+
+    });
   }
 
   ngOnInit() {
-  }
-  GoPageAddClass(){
+    
 
-    this.router.navigate(['/add-class'])
+
+  }
+
+  gopageDetail(id){
+
+    this.router.navigate(['/teacher-detail',{_id:id}])
+
+
+  }
+
+
+  GoPageAddClass(idTeacher) {
+
+    this.router.navigate(['/add-class',{_id:idTeacher}])
   }
 }

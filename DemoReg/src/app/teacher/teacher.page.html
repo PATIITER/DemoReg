@@ -8,7 +8,7 @@
   <ion-row>
     <ion-col>
       <ion-item lines="none">
-        <ion-button slot="end" size="default" (click)="GoPageAddClass(idTeacher)">
+        <ion-button slot="end" size="default" (click)="GoPageAddClass(teacherbyid.idTeacher)">
           + เพิ่ม
         </ion-button>
       </ion-item>
@@ -52,7 +52,7 @@
                 <td>{{ d.idClass }}</td>
                 <td>{{ d.nameClass}}</td>
                 <td>
-                  <ion-button color="secondary" >ดูข้อมูล</ion-button>
+                  <ion-button color="secondary" (click)="gopageDetail(d.idClass)">ดูข้อมูล</ion-button>
                 </td>
                 
               </tr>

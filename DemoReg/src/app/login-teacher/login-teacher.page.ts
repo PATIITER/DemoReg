@@ -11,38 +11,35 @@ import { dataTeacher } from 'Models/teacher';
 export class LoginTeacherPage implements OnInit {
   // data:FormGroup;
 
-  datauser:dataTeacher;
+  datauser: dataTeacher;
 
 
-  constructor(public router : Router,public builder:FormBuilder) {
+  constructor(public router: Router, public builder: FormBuilder) {
     // this.data = this.builder.group({
     //   'username':[null,Validators.required],
     //   'password':[null,Validators.required]
     // });
-   }
+  }
 
   ngOnInit() {
   }
 
 
 
-  
-  gopage(id){
 
-    
-    
-   
-    
-    
-     this.router.navigate(['/teacher',{_id:id}])
-     
-     
+  gopage(id) {
+    this.router.navigate(['/teacher', { _id: id }])
+
+
     // console.log(this.data.value);
     // this.datauser= this.data.value;
     // console.log(this.datauser);
-    
+
+  }
 
 
-    
+  gopageRegister(){
+    this.router.navigate(['/register-teacher'])
+
   }
 }

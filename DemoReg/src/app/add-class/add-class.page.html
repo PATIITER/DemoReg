@@ -12,19 +12,19 @@
           <div text-center>
             <h3>เพิ่มวิชา</h3>
           </div>
-          <div>  
-            
-              <ion-label>รหัสวิชา</ion-label>
-              <ion-select placeholder="Select One"  formControlName="idclass">
-                <ion-select-option *ngFor="let d of dataClass" value="{{d.idClass}}" >{{d.idClass}}</ion-select-option>
-              </ion-select>
+          <div>
 
-              <ion-label>รหัสวิชา</ion-label>
-              <ion-select placeholder="Select One"  formControlName="nameclass">
-                <ion-select-option *ngFor="let d of dataClass" value="{{d.nameClass}}" >{{d.nameClass}}</ion-select-option>
-              </ion-select>
-              
-              
+            <ion-label>รหัสวิชา</ion-label>
+            <ion-select placeholder="Select One" formControlName="idclass">
+              <ion-select-option *ngFor="let d of dataClass" value="{{d.idClass}}">{{d.idClass}}</ion-select-option>
+            </ion-select>
+
+            <ion-label>รหัสวิชา</ion-label>
+            <ion-select placeholder="Select One" formControlName="nameclass">
+              <ion-select-option *ngFor="let d of dataClass" value="{{d.nameClass}}">{{d.nameClass}}</ion-select-option>
+            </ion-select>
+
+
           </div>
           <div>
             <ion-button size="large" expand="block" type="submit">บันทึก</ion-button>

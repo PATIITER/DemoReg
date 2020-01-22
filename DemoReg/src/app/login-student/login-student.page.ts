@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login-student',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginStudentPage implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router,
+     public builder: FormBuilder) { }
 
   ngOnInit() {
   }
 
+
+
+  gopage(id) {
+    this.router.navigate(['/student', { _id: id }])
+
+  }
+
+  gopageRegister(){
+    this.router.navigate(['/register-student'])
+
+  }
 }

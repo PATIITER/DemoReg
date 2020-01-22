@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>teacher-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding">
+    <ion-row>
+      <ion-col text-center>
+        <h1>ข้อมูลนักเรียน</h1>
+      </ion-col>
+    </ion-row>
+    <ion-grid>
+      <ion-row>
+        <table class="fixed_header">
+          <thead>
+            <tr>
+              <th>รหัสนักเรียน</th>
+              <th>ชื่อนักเรียน</th>
+              <th width="5%">ดูข้อมูล</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="classbyid != null">
+            <tr *ngFor="let d of classbyid.students">
+              <td>{{ d.idStudent }}</td>
+              <td>{{ d.nameStudent}}</td>
+              <td>
+                <ion-button color="secondary" (click)="gopageDetail()">ดูข้อมูล</ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

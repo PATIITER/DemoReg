@@ -5,5 +5,15 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Username</ion-label>
+    <ion-input [(ngModel)]="username"></ion-input>
+  </ion-item>
+
+
+  
+  <ion-button expand="block" (click)="gopage(username)" >Login</ion-button>
+
+  <ion-button expand="block" (click)="gopageRegister()" >Register</ion-button>
 
 </ion-content>
