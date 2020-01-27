@@ -49,12 +49,12 @@ namespace DemoRegApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Teacher> GetTeacherId(string id)
         {
-            return DataTeacher.FirstOrDefault(it => it.Username == id.ToString());
+            return DataTeacher.FirstOrDefault(it => it.IdTeacher == id.ToString());
 
         }
 
-            //ดูนักเรียนในวิชา
-         [HttpGet("{id}")]
+        //ดูนักเรียนในวิชา
+        [HttpGet("{id}")]
         public ActionResult<Class> GetTeacherByclass(string id)
         {
             return DataClass.FirstOrDefault(it => it.IdClass == id.ToString());
@@ -64,13 +64,11 @@ namespace DemoRegApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Student> GetStudentById(string id)
         {
+
             return DataStudent.FirstOrDefault(it => it.IdStudent == id.ToString());
-            
-      
+
+
         }
-       
-
-
 
         [HttpPost]
         public Teacher AddTeacher([FromBody] Teacher Teacherx)
@@ -90,6 +88,7 @@ namespace DemoRegApi.Controllers
             DataTeacher.Add(item);
             return item;
         }
+
 
 
         //เพิ่มวิชาในอาจาร
@@ -137,7 +136,7 @@ namespace DemoRegApi.Controllers
             var data2 = DataTeacher.FirstOrDefault(it => it.IdTeacher == idT.ToString());
 
             var data = DataClass.FirstOrDefault(it => it.IdClass == id.ToString());
-            
+
             var AA = data.students.ToList();
             Console.WriteLine(data.students.ToList());
 
@@ -167,13 +166,13 @@ namespace DemoRegApi.Controllers
             //return item3;
 
 
-            var item2 = new Teacher 
+            var item2 = new Teacher
             {
                 IdTeacher = id.ToString(),
-               // NameTeacher = data2.NameTeacher,
+                // NameTeacher = data2.NameTeacher,
                 Class = DataClass.ToArray(),
-               // Username = data2.Username,
-               // Password = data2.Password
+                // Username = data2.Username,
+                // Password = data2.Password
 
 
             };
@@ -189,14 +188,6 @@ namespace DemoRegApi.Controllers
             var delete = DataTeacher.FirstOrDefault(it => it.IdTeacher == id.ToString());
             DataTeacher.Remove(delete);
         }
-
-
-
-
-
-       
-
-
 
         [HttpPut("{id}")]
         public Teacher EditTeacher(string id, [FromBody] Teacher Teacherx)

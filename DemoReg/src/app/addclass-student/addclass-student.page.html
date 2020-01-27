@@ -1,40 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>student</ion-title>
+    <ion-title>addclass-student</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-
-  <ion-card>
-    <ion-row>
-
-
-      <div *ngIf="getstudentByid != null">
-
-        <ion-col text-center>
-          Id :
-          {{getstudentByid.idStudent}}
-        </ion-col>
-        <ion-col text-center>
-          name :
-          {{getstudentByid.nameStudent}}
-        </ion-col>  </div>
-       
-    
-      <ion-col>
-        <ion-item lines="none">
-          <ion-button slot="end" size="default" (click)="GoPageAddClassstudent(getstudentByid.idStudent)">
-            + เพิ่ม
-          </ion-button>
-        </ion-item>
-      </ion-col>
-    
-
-
-    </ion-row>
-  </ion-card>
-
+<ion-content>
   <ion-card class="ion-padding">
     <ion-row>
       <ion-col text-center>
@@ -49,12 +19,8 @@
         <table class="fixed_header">
           <thead>
             <tr>
-              <th>รหัสอาจารย์</th>
-              <th>ชื่ออาจารย์</th>
               <th>รหัสวิชา</th>
               <th>ชื่อวิชา</th>
-
-
               <th width="5%">ดูข้อมูล</th>
 
 
@@ -70,25 +36,12 @@
                 
               </tr>
             </tbody> -->
-          <!-- <tbody *ngIf="getAllDataTeacher != null"> -->
-            <tbody  *ngFor="let d of getAllDataTeacher ">
-
-            <tr *ngFor ="let class of d.class">
-              
+          <tbody *ngIf="getAllDataTeacher != null">
+            <tr *ngFor="let d of getAllDataTeacher" >
 
 
               <td>{{ d.idTeacher }}</td>
               <td>{{ d.nameTeacher}}</td>
-
-              <td >
-                {{class.idClass}}
-              </td>
-              <td >
-                {{class.nameClass}}
-              </td>
-              
-
-
               <td>
                 <ion-button color="secondary" (click)="gopageDetail(d.idClass)">ดูข้อมูล</ion-button>
               </td>
