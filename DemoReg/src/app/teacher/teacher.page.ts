@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CallApiService } from '../call-api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { dataTeacher } from 'Models/teacher';
+import { dataOpenCourse } from 'Models/openCourse';
 
 @Component({
   selector: 'app-teacher',
@@ -14,6 +15,9 @@ export class TeacherPage implements OnInit {
   getid: string;
   teacherbyid: dataTeacher;
 t:any;
+Teacherid:any;
+getAllCourse:dataOpenCourse;
+A:any;
 
   constructor(public callapi: CallApiService,
     public router: Router,
@@ -21,32 +25,36 @@ t:any;
 
     this.getid = activated.snapshot.paramMap.get('_id');
     console.log(this.getid);
-    callapi.GetdataTeacherId(this.getid).subscribe(it => {
-      // console.log(it);
-      this.teacherbyid = it;
-      console.log(this.teacherbyid);
+    // callapi.GetdataTeacherId(this.getid).subscribe(it => {
+    //    console.log(it);
+    //   this.teacherbyid = it;
+    //   console.log(this.teacherbyid);
 
-      console.log(this.teacherbyid.class);
-      console.log(this.teacherbyid.idTeacher);
-      
-      
+     
+    //   });
 
+       callapi.GetTeacherById(this.getid).subscribe(it=> {
+
+        this.Teacherid =it;
+        console.log(this.Teacherid);
+       
     });
   }
 
   ngOnInit() {
-    
-
+    this.callapi.GetOpenCourseAll().subscribe(it =>{
+      this.getAllCourse = it 
+      console.log(this.getAllCourse);
+       
+    });
 
   }
 
   gopageDetail(id){
 
-    this.router.navigate(['/teacher-detail',{_id:id}])
-
+    this.router.navigate(['/teacher-detail',{id}])
 
   }
-
 
   GoPageAddClass(idTeacher) {
 

@@ -4,7 +4,7 @@ export class dataTeacher{
 
     idTeacher:string;
     nameTeacher:string;
-    class:dataclass[];
+    //class:dataclass[];
     username:string;
     password:string;
     

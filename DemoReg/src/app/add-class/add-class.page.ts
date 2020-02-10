@@ -14,11 +14,12 @@ import {Location} from '@angular/common';
 })
 export class AddClassPage implements OnInit {
 
-  data: FormGroup;
+  
   dataClass: any;
 
-  getid: string;
+  getid: any;
   teacherbyid: dataTeacher;
+  idclass:string;
 
   constructor(public callapi: CallApiService,
     public builder: FormBuilder,
@@ -39,10 +40,7 @@ export class AddClassPage implements OnInit {
       });
 
 
-    this.data = this.builder.group({
-      'idclass': [null, Validators.required],
-      'nameclass': [null, Validators.required]
- });
+    
   }
 
   ngOnInit() {
@@ -59,15 +57,21 @@ export class AddClassPage implements OnInit {
 
 
   addclass(id) {
-    console.log(this.data.value);
-    console.log(this.dataClass);
+   this.idclass = id ;
+  console.log(this.idclass);
 
-    this.callapi.AddTeacherClass(this.teacherbyid.idTeacher,this.data.value).subscribe(it => {
-      console.log(it);
-      this.Location.back();
-
-
-
+  this.callapi.AddTeacherToOpenCourse(this.idclass,this.teacherbyid).subscribe(it => {
+    console.log(it);
+    
   });
+  
+
+  //   this.callapi.AddTeacherClass(this.teacherbyid.idTeacher,this.data.value).subscribe(it => {
+  //     console.log(it);
+  //     this.Location.back();
+
+
+
+  // });
   }
 }

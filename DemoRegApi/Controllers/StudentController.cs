@@ -14,9 +14,9 @@ namespace DemoRegApi.Controllers
     {
         public static List<Student> DataStudent = new List<Student>
         {
-            new Student { IdStudent = "001", NameStudent = "abc", Score= "99", Username = "admin1", Password = "12356" },
-            new Student { IdStudent = "002", NameStudent = "def", Score= "80", Username = "admin1", Password = "12356"},
-            new Student { IdStudent = "003", NameStudent = "hij", Score= "50", Username = "admin1", Password = "12356" },
+            new Student { IdStudent = "001", NameStudent = "abc",  Username = "admin1", Password = "12356" },
+            new Student { IdStudent = "002", NameStudent = "def",  Username = "admin1", Password = "12356"},
+            new Student { IdStudent = "003", NameStudent = "hij", Username = "admin1", Password = "12356" },
 
         };
 

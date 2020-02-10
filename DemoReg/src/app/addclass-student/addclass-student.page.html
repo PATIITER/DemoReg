@@ -19,9 +19,13 @@
         <table class="fixed_header">
           <thead>
             <tr>
+              <th>รหัสอาจารย์</th>
+              <th>ชื่ออาจารย์</th>
               <th>รหัสวิชา</th>
               <th>ชื่อวิชา</th>
-              <th width="5%">ดูข้อมูล</th>
+
+
+              <th width="5%">ลงทะเบียน</th>
 
 
             </tr>
@@ -36,14 +40,18 @@
                 
               </tr>
             </tbody> -->
-          <tbody *ngIf="getAllDataTeacher != null">
-            <tr *ngFor="let d of getAllDataTeacher" >
+          <tbody *ngFor="let d of getAllCourse">
+            <tr *ngFor="let A of d.teacher" >
+             <td> {{A.idTeacher}}</td> 
+              <td> {{A.nameTeacher}}</td> 
+              <td>{{ d.idCourse }}</td>
+              <td>{{ d.nameCourse}}</td> 
 
-
-              <td>{{ d.idTeacher }}</td>
-              <td>{{ d.nameTeacher}}</td>
+              
               <td>
-                <ion-button color="secondary" (click)="gopageDetail(d.idClass)">ดูข้อมูล</ion-button>
+                <ion-button   (click)="AddCourse(d.idCourse)">
+                  <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+                </ion-button>
               </td>
 
             </tr >

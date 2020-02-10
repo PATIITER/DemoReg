@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { dataStudent } from 'Models/student';
 import { dataTeacher } from 'Models/teacher';
 import { dataclass } from 'Models/class';
+import { dataOpenCourse } from 'Models/openCourse';
 
 @Component({
   selector: 'app-student',
@@ -16,6 +17,7 @@ export class StudentPage implements OnInit {
   getstudentByid: dataStudent;
   getAllDataTeacher:dataTeacher;
   dataClass:any[]=[];
+  getAllCourse:dataOpenCourse;
 
   constructor(public callapi: CallApiService,
     public router: Router,
@@ -27,34 +29,36 @@ export class StudentPage implements OnInit {
     callapi.GetStudentById(this.getid).subscribe(it => {
       this.getstudentByid = it;
       console.log(this.getstudentByid);
-      console.log(this.getstudentByid.idStudent);
+     
       
-      
-      
-
     });
 
   }
 
   ngOnInit() {
-    this.callapi.GetAllTeacher().subscribe(it => {
-      this.getAllDataTeacher = it
-      console.log(it);
-      console.log(this.getAllDataTeacher);
-      this.dataClass.push(this.getAllDataTeacher);
-      console.log(this.dataClass);
+    // this.callapi.GetAllTeacher().subscribe(it => {
+    //   this.getAllDataTeacher = it
+    //   console.log(it);
+    //   console.log(this.getAllDataTeacher);
+    //   this.dataClass.push(this.getAllDataTeacher);
+    //   console.log(this.dataClass);
       
+     
+        
+    //   });
       
-      
-      
+       this.callapi.GetOpenCourseAll().subscribe(it =>{
+        this.getAllCourse = it 
+        console.log(this.getAllCourse);
     });
   }
 
 
   GoPageAddClassstudent(id){
-    this.router.navigate(['/addclass-student',{id}])
+    this.router.navigate(['/addclass-student',{ id}])
 
 
   }
 
 }
+ 

@@ -5,7 +5,26 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="data" (ngSubmit)="addclass()">
+  <ion-card>
+    <ion-row *ngIf="teacherbyid != null">
+
+
+      <ion-col text-center>
+        Id :
+        {{teacherbyid.idTeacher}}
+      </ion-col>
+      <ion-col text-center>
+        name :
+        {{teacherbyid.nameTeacher}}
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+
+
+ 
     <ion-card class="ion-padding">
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -15,22 +34,22 @@
           <div>
 
             <ion-label>รหัสวิชา</ion-label>
-            <ion-select placeholder="Select One" formControlName="idclass">
+            <ion-select placeholder="Select One" [(ngModel)]="idclass">
               <ion-select-option *ngFor="let d of dataClass" value="{{d.idClass}}">{{d.idClass}}</ion-select-option>
             </ion-select>
 
             <ion-label>รหัสวิชา</ion-label>
-            <ion-select placeholder="Select One" formControlName="nameclass">
+            <ion-select placeholder="Select One" [(ngModel)]="nameclass">
               <ion-select-option *ngFor="let d of dataClass" value="{{d.nameClass}}">{{d.nameClass}}</ion-select-option>
             </ion-select>
 
 
           </div>
           <div>
-            <ion-button size="large" expand="block" type="submit">บันทึก</ion-button>
+            <ion-button size="large" expand="block" (click)="addclass(idclass)">บันทึก</ion-button>
           </div>
         </ion-col>
       </ion-row>
     </ion-card>
-  </form>
+ 
 </ion-content>

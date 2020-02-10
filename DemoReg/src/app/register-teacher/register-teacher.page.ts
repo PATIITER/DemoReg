@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CallApiService } from '../call-api.service';
+import { dataTeacher } from 'Models/teacher';
 
 @Component({
   selector: 'app-register-teacher',
@@ -10,10 +12,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterTeacherPage implements OnInit {
 
   data: FormGroup;
+  dataTeacher:dataTeacher;
 
   constructor(
     public router: Router,
-    public builder: FormBuilder) {
+    public builder: FormBuilder,
+    public callapi:CallApiService) {
 
     this.data = this.builder.group({
       'idTeacher': [null, Validators.required],
@@ -27,7 +31,18 @@ export class RegisterTeacherPage implements OnInit {
   }
 
 
-  register(){
+  register(){ 
+    
+    this.dataTeacher = this.data.value ;
+    console.log(this.dataTeacher);
+   
+    
+    
+    this.callapi.AddNewTeacherinopenCourse(this.dataTeacher).subscribe(it => {
+      console.log(it);
+      
+
+    });
 
     
   }

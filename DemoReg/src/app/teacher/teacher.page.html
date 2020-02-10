@@ -8,7 +8,7 @@
   <ion-row>
     <ion-col>
       <ion-item lines="none">
-        <ion-button slot="end" size="default" (click)="GoPageAddClass(teacherbyid.idTeacher)">
+        <ion-button slot="end" size="default" (click)="GoPageAddClass(Teacherid.idTeacher)">
           + เพิ่ม
         </ion-button>
       </ion-item>
@@ -45,14 +45,14 @@
                 
               </tr>
             </tbody> -->
-            <tbody *ngIf="teacherbyid != null">
-              <tr  *ngFor="let d of teacherbyid.class">
-                
-                
-                <td>{{ d.idClass }}</td>
-                <td>{{ d.nameClass}}</td>
+            <tbody *ngFor="let d of getAllCourse">
+              <tr  *ngFor="let A of d.teacher" >
+                <td> {{A.idTeacher}}</td> 
+              <td> {{A.nameTeacher}}</td> 
+              <td>{{ d.idCourse }}</td>
+              <td>{{ d.nameCourse}}</td> 
                 <td>
-                  <ion-button color="secondary" (click)="gopageDetail(d.idClass)">ดูข้อมูล</ion-button>
+                  <ion-button color="secondary" (click)="gopageDetail(d.idCourse)">ดูข้อมูล</ion-button>
                 </td>
                 
               </tr>
