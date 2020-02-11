@@ -49,8 +49,7 @@
         <table class="fixed_header">
           <thead>
             <tr>
-              <th>รหัสอาจารย์</th>
-              <th>ชื่ออาจารย์</th>
+              
               <th>รหัสวิชา</th>
               <th>ชื่อวิชา</th>
 
@@ -71,20 +70,20 @@
               </tr>
             </tbody> -->
           <!-- <tbody *ngIf="getAllDataTeacher != null"> -->
-            <tbody  *ngFor="let d of getAllCourse ">
+            <tbody  *ngIf="getCourseStudent != null">
 
-            <tr *ngFor ="let A of d.teacher">
+            <tr *ngFor ="let A of getCourseStudent">
               
 
 
-              <td>{{ A.idTeacher }}</td>
-              <td>{{ A.nameTeacher}}</td>
+              <!-- <td>{{ A.idTeacher }}</td>
+              <td>{{ A.nameTeacher}}</td> -->
 
               <td >
-                {{d.idCourse}}
+                {{A.idCourse}}
               </td>
               <td >
-                {{d.nameCourse}}
+                {{A.nameCourse}}
               </td>
               
 

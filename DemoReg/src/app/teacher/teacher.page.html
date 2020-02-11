@@ -45,15 +45,16 @@
                 
               </tr>
             </tbody> -->
-            <tbody *ngFor="let d of getAllCourse">
-              <tr  *ngFor="let A of d.teacher" >
-                <td> {{A.idTeacher}}</td> 
-              <td> {{A.nameTeacher}}</td> 
+            <tbody *ngIf="getCourseTeacher != null">
+              <tr  *ngFor="let d of getCourseTeacher">
+        
               <td>{{ d.idCourse }}</td>
               <td>{{ d.nameCourse}}</td> 
                 <td>
                   <ion-button color="secondary" (click)="gopageDetail(d.idCourse)">ดูข้อมูล</ion-button>
                 </td>
+                
+               
                 
               </tr>
             </tbody>
@@ -62,6 +63,6 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-
+ <ion-button color="secondary" (click)="getfiller()">ดูข้อมูล</ion-button>
 
 </ion-content>

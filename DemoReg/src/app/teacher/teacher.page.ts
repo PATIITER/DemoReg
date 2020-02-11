@@ -14,10 +14,14 @@ export class TeacherPage implements OnInit {
   dataTeacher: dataTeacher;
   getid: string;
   teacherbyid: dataTeacher;
-t:any;
-Teacherid:any;
-getAllCourse:dataOpenCourse;
-A:any;
+  t: any;
+  Teacherid: any;
+  getAllCourse: dataOpenCourse;
+  getCourseTeacher:dataOpenCourse[] = [];
+  A: any[];
+  c: any;
+
+  xxx:dataTeacher;
 
   constructor(public callapi: CallApiService,
     public router: Router,
@@ -30,34 +34,118 @@ A:any;
     //   this.teacherbyid = it;
     //   console.log(this.teacherbyid);
 
-     
+
     //   });
 
-       callapi.GetTeacherById(this.getid).subscribe(it=> {
+    callapi.GetTeacherById(this.getid).subscribe(it => {
 
-        this.Teacherid =it;
-        console.log(this.Teacherid);
-       
+      this.Teacherid = it;
+      console.log(this.Teacherid);
+
+
+
+
     });
   }
 
   ngOnInit() {
-    this.callapi.GetOpenCourseAll().subscribe(it =>{
-      this.getAllCourse = it 
-      console.log(this.getAllCourse);
-       
+    this.callapi.GetOpenCourseAll().subscribe(it => {
+      console.log(it);
+
+      // for (let index = 0; index < Object.keys(it).length; index++) {
+      //   this.xxx = it[index];
+      //   console.log(this.xxx);
+      
+        
+      // }
+        this.getAllCourse = it;
+
+        console.log(this.getAllCourse[0].teacher[0].idTeacher);
+      for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) {
+        console.log(this.getAllCourse[index]);
+        console.log(this.getAllCourse[index].teacher);
+        for (let i = 0; i < Object.keys(this.getAllCourse[index].teacher).length; i++) {
+         console.log(this.getAllCourse[index].teacher[i]);
+         if (this.getAllCourse[index].teacher[i].idTeacher == this.getid) {
+          this.getCourseTeacher.push(this.getAllCourse[index]);
+           console.log(this.getCourseTeacher);
+           
+         }
+        }
+        
+      }
+        // this.xxx = this.getAllCourse.teacher.find(it => it.idTeacher == this.getid);
+        // console.log(this.xxx);
+      
+
+ 
+      
+
+
     });
+
+    // this.callapi.GetOpenCourseById("002").subscribe(it => {
+    //   console.log(it);
+      
+    // });
+
+
 
   }
 
-  gopageDetail(id){
+  //   getfiller(){
 
-    this.router.navigate(['/teacher-detail',{id}])
+  //     // const inventory = [
+  //     //   {name: 'apples', quantity: 2},
+  //     //   {name: 'bananas', quantity: 0},
+  //     //   {name: 'cherries', quantity: 5}
+  //     // ];
+
+  //     // const result = inventory.find( ({ name }) => name === 'cherries' );
+
+  //     // console.log(result) // { name: 'cherries', quantity: 5 }
+
+  //     this.callapi.GetOpenCourseAll().subscribe(it =>{
+  //       this.getAllCourse = it 
+  //       console.log(this.getAllCourse);
+  //       console.log(this.getAllCourse.Teacher);
+
+  //     for(let index = 0; index < Object.keys(this.getAllCourse).length; index++){
+
+  //     }
+
+  //     this.c =this.getAllCourse.Teacher.filter(it => it.idTeacher == "555");
+
+  //     console.log(this.c);
+
+  // });
+
+
+
+
+  //     // this.c =this.getAllCourse.Teacher.find( ({idTeacher}) => idTeacher === '2');
+
+  //     // console.log(this.c);
+
+
+  //     //this.c
+
+
+
+  //     // let aa = this.getAllCourse.Teacher;
+  //     // let ee = aa.find(aa=this.Teacherid.idTeacher);
+  //     // console.log(ee);
+
+  //   }
+
+  gopageDetail(id) {
+
+    this.router.navigate(['/teacher-detail', { id }])
 
   }
 
   GoPageAddClass(idTeacher) {
 
-    this.router.navigate(['/add-class',{_id:idTeacher}])
+    this.router.navigate(['/add-class', { _id: idTeacher }])
   }
 }

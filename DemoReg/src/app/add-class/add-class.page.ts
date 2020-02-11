@@ -20,6 +20,7 @@ export class AddClassPage implements OnInit {
   getid: any;
   teacherbyid: dataTeacher;
   idclass:string;
+  Teacherid:any;
 
   constructor(public callapi: CallApiService,
     public builder: FormBuilder,
@@ -30,14 +31,20 @@ export class AddClassPage implements OnInit {
 
       this.getid = activated.snapshot.paramMap.get('_id');
       console.log(this.getid);
-      callapi.GetdataTeacherById(this.getid).subscribe(it => {
-        // console.log(it);
-        this.teacherbyid = it;
-        console.log(this.teacherbyid);
+      // callapi.GetdataTeacherById(this.getid).subscribe(it => {
+      //   // console.log(it);
+      //   this.teacherbyid = it;
+      //   console.log(this.teacherbyid);
   
-        console.log(this.teacherbyid.idTeacher);
+      //   console.log(this.teacherbyid.idTeacher);
   
-      });
+      // });
+      callapi.GetTeacherById(this.getid).subscribe(it=> {
+
+        this.Teacherid =it;
+        console.log(this.Teacherid);
+       
+    });
 
 
     
@@ -60,7 +67,7 @@ export class AddClassPage implements OnInit {
    this.idclass = id ;
   console.log(this.idclass);
 
-  this.callapi.AddTeacherToOpenCourse(this.idclass,this.teacherbyid).subscribe(it => {
+  this.callapi.AddTeacherToOpenCourse(this.idclass,this.Teacherid).subscribe(it => {
     console.log(it);
     
   });

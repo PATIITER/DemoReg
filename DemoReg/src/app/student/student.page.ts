@@ -18,6 +18,7 @@ export class StudentPage implements OnInit {
   getAllDataTeacher:dataTeacher;
   dataClass:any[]=[];
   getAllCourse:dataOpenCourse;
+  getCourseStudent:dataStudent[]=[];
 
   constructor(public callapi: CallApiService,
     public router: Router,
@@ -50,7 +51,27 @@ export class StudentPage implements OnInit {
        this.callapi.GetOpenCourseAll().subscribe(it =>{
         this.getAllCourse = it 
         console.log(this.getAllCourse);
+
+        console.log(this.getAllCourse[0].students[0].idStudent);
+      for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) {
+        console.log(this.getAllCourse[index]);
+        console.log(this.getAllCourse[index].students);
+
+        for (let i = 0; i < Object.keys(this.getAllCourse[index].students).length; i++) {
+         console.log(this.getAllCourse[index].students[i]);
+
+         if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent) {
+          this.getCourseStudent.push(this.getAllCourse[index]);
+           console.log(this.getCourseStudent);
+           
+         }
+        }
+        
+      }
     });
+
+
+
   }
 
 

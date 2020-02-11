@@ -3,10 +3,10 @@ import { dataStudent } from './student';
 
 export class dataOpenCourse{
 
-    IdCourse:string;
-    NameCourse:string;
-    Teacher :dataTeacher[];
-    Students:dataStudent[];
+    idCourse:string;
+    nameCourse:string;
+    teacher :dataTeacher[];
+    students:dataStudent[];
     
     
     }
