@@ -15,23 +15,25 @@ export class StudentPage implements OnInit {
 
   getid: string;
   getstudentByid: dataStudent;
-  getAllDataTeacher:dataTeacher;
-  dataClass:any[]=[];
-  getAllCourse:dataOpenCourse;
-  getCourseStudent:dataStudent[]=[];
+  getAllDataTeacher: dataTeacher;
+  dataClass: any[] = [];
+  getAllCourse: dataOpenCourse;
+  getCourseStudent: dataStudent[] = [];
+  aaa: any;
+  getscore: any[] = [];
 
   constructor(public callapi: CallApiService,
     public router: Router,
     public activated: ActivatedRoute) {
 
-    this.getid = activated.snapshot.paramMap.get('_id');
+    this.getid = activated.snapshot.paramMap.get('id');
     console.log(this.getid);
 
     callapi.GetStudentById(this.getid).subscribe(it => {
       this.getstudentByid = it;
       console.log(this.getstudentByid);
-     
-      
+
+
     });
 
   }
@@ -43,43 +45,100 @@ export class StudentPage implements OnInit {
     //   console.log(this.getAllDataTeacher);
     //   this.dataClass.push(this.getAllDataTeacher);
     //   console.log(this.dataClass);
-      
-     
-        
-    //   });
-      
-       this.callapi.GetOpenCourseAll().subscribe(it =>{
-        this.getAllCourse = it 
-        console.log(this.getAllCourse);
 
-        console.log(this.getAllCourse[0].students[0].idStudent);
+
+
+    //   });
+
+    this.callapi.GetOpenCourseAll().subscribe(it => {
+      this.getAllCourse = it
+      console.log(this.getAllCourse);
+
+      // console.log(this.getAllCourse[0].students[0].idStudent);
       for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) {
-        console.log(this.getAllCourse[index]);
-        console.log(this.getAllCourse[index].students);
+        // console.log(this.getAllCourse[index]);
+        // console.log(this.getAllCourse[index].students);
 
         for (let i = 0; i < Object.keys(this.getAllCourse[index].students).length; i++) {
-         console.log(this.getAllCourse[index].students[i]);
+          //  console.log(this.getAllCourse[index].students[i]);
 
-         if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent) {
-          this.getCourseStudent.push(this.getAllCourse[index]);
-           console.log(this.getCourseStudent);
-           
-         }
+          if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent) {
+
+            // this.aaa = this.getAllCourse[index];
+            // console.log(this.aaa.students);
+
+            this.getCourseStudent.push(this.getAllCourse[index]);
+            console.log(this.getCourseStudent);
+
+
+
+
+
+
+          }
         }
-        
+
       }
     });
 
 
 
+
   }
 
 
-  GoPageAddClassstudent(id){
-    this.router.navigate(['/addclass-student',{ id}])
+  GoPageAddClassstudent(id) {
+    this.router.navigate(['/addclass-student', { id }])
+
+
+  }
+  gopageDetail() {
+
+
+
+  }
+
+  presentAlert(id) {
+    console.log(id);
+
+    this.callapi.GetOpenCourseAll().subscribe(it => {
+      this.getAllCourse = it
+      console.log(this.getAllCourse);
+
+
+      for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) {
+        // console.log(this.getAllCourse[index]);
+        // console.log(this.getAllCourse[index].students);
+
+        for (let i = 0; i < Object.keys(this.getAllCourse[index].students).length; i++) {
+          //  console.log(this.getAllCourse[index].students[i]);
+
+          if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent) {
+            this.getscore.push(this.getAllCourse[index].students[i]);
+            console.log(this.getscore);
+
+
+            const alert = document.createElement('ion-alert');
+            alert.header = 'คะแนน';
+            alert.subHeader = 'ชื่อ ' + this.getAllCourse[index].students[i].nameStudent;
+            alert.message = '  คะแนนสอบกลางภาค   :' + this.getAllCourse[index].students[i].midScore +'<br>'+
+              'คะแนนสอบปลายภาค :' + this.getAllCourse[index].students[i].finalScore +'<br>'+
+              ' คะแนนรวม : ' + this.getAllCourse[index].students[i].totalScore;
+            alert.buttons = ['OK'];
+
+            document.body.appendChild(alert);
+            return alert.present();
+          }
+
+        }
+
+      }
+
+
+
+    });
 
 
   }
 
 }
- 

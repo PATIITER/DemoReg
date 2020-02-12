@@ -1,9 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register-student</ion-title>
+    <ion-title>register</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <form [formGroup]="data" (ngSubmit)="register()">
+    <ion-card class="ion-padding">
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Register</h3>
+          </div>
+          <div>
+            <ion-label>Id</ion-label>
+            <ion-input class="input1" type="text" placeholder="Id" formControlName="idStudent"></ion-input>
+            <ion-label>name</ion-label>
+            <ion-input class="input1" type="text" placeholder="name" formControlName="nameStudent"></ion-input>
+            <ion-label>username</ion-label>
+            <ion-input class="input1" type="text" placeholder="username" formControlName="username"></ion-input>
+            <ion-label>password</ion-label>
+            <ion-input class="input1" type="text" placeholder="password" formControlName="password"></ion-input>
+
+          </div>
+          <div>
+            <ion-button size="large" expand="block" type="submit">บันทึก</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </form>
+
+
 
 </ion-content>

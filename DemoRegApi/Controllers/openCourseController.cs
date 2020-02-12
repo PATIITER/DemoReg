@@ -14,30 +14,30 @@ namespace DemoRegApi.Controllers
     {
         public static List<Class> DataClass = new List<Class>
         {
-            new Class { IdClass = "001", NameClass = " Business Administration"},
-            new Class { IdClass = "002", NameClass = "Computer Engineering" },
-            new Class { IdClass = "003", NameClass = "International Business"  },
+            // new Class { IdClass = "001", NameClass = " Business Administration"},
+            // new Class { IdClass = "002", NameClass = "Computer Engineering" },
+            // new Class { IdClass = "003", NameClass = "International Business"  },
 
         };
         public static List<Student> DataStudent = new List<Student>
         {
-            new Student { IdStudent = "001", NameStudent = "abc", Username = "admin1", Password = "12356",score = 55,MidScore = 20,FinalScore = 20 ,TotalScore = 100},
-            new Student { IdStudent = "002", NameStudent = "abc", Username = "admin2", Password = "12356",score = 55,MidScore = 20 ,FinalScore = 20,TotalScore = 100},
-            new Student{ IdStudent = "003", NameStudent = "abc",  Username = "admin3", Password = "12356",score = 55,MidScore = 20 ,FinalScore = 20,TotalScore = 100}
+            // new Student { IdStudent = "001", NameStudent = "abc", Username = "admin1", Password = "12356",score = 55,MidScore = 20,FinalScore = 20 ,TotalScore = 100},
+            // new Student { IdStudent = "002", NameStudent = "abc", Username = "admin2", Password = "12356",score = 55,MidScore = 20 ,FinalScore = 20,TotalScore = 100},
+            // new Student{ IdStudent = "003", NameStudent = "abc",  Username = "admin3", Password = "12356",score = 55,MidScore = 20 ,FinalScore = 20,TotalScore = 100}
         };
 
         public static List<Teacher> DataTeacher = new List<Teacher>
         {
-            new Teacher { IdTeacher = "1", NameTeacher = "sdf",Username = "admin1", Password = "12356"},
-            new Teacher { IdTeacher = "2", NameTeacher = "sdtrwgg",Username = "admin2", Password = "12356" },
-            new Teacher { IdTeacher = "3", NameTeacher = "wtdfg",Username = "admin3", Password = "12356" },
+            // new Teacher { IdTeacher = "1", NameTeacher = "sdf",Username = "admin1", Password = "12356"},
+            // new Teacher { IdTeacher = "2", NameTeacher = "sdtrwgg",Username = "admin2", Password = "12356" },
+            // new Teacher { IdTeacher = "3", NameTeacher = "wtdfg",Username = "admin3", Password = "12356" },
 
         };
         public static List<openCourse> DataopenCourse = new List<openCourse>
         {
-            new openCourse { IdCourse = "001", NameCourse = " Business Administration",Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
-            new openCourse { IdCourse = "002", NameCourse = "Computer Engineering",Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
-            new openCourse { IdCourse = "003", NameCourse = "International Business" ,Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
+            // new openCourse { IdCourse = "001", NameCourse = " Business Administration",Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
+            // new openCourse { IdCourse = "002", NameCourse = "Computer Engineering",Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
+            // new openCourse { IdCourse = "003", NameCourse = "International Business" ,Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
 
         };
 
@@ -74,24 +74,24 @@ namespace DemoRegApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Teacher> GetTeacherId(string id)
         {
-            return DataTeacher.FirstOrDefault(it => it.Username == id.ToString());
+            return DataTeacher.FirstOrDefault(it => it.IdTeacher == id.ToString());
 
         }
         [HttpGet("{id}")]
         public ActionResult<Student> GetStudentId(string id)
         {
-           
 
-            return DataStudent.FirstOrDefault(it => it.Username == id.ToString());
+
+            return DataStudent.FirstOrDefault(it => it.IdStudent == id.ToString());
 
         }
-         
-        
+
+
 
         [HttpPost]
         public openCourse AddCourse([FromBody] openCourse openCoursex)
         {
-            var id = Guid.NewGuid().ToString();
+            // var id = Guid.NewGuid().ToString();
             var item = new openCourse
             {
 
@@ -106,7 +106,7 @@ namespace DemoRegApi.Controllers
             DataopenCourse.Add(item);
             return item;
         }
-        
+
         [HttpPost]
         public Teacher AddNewTeacherinopenCourse([FromBody] Teacher Teacherx)
         {
@@ -114,13 +114,30 @@ namespace DemoRegApi.Controllers
             {
                 IdTeacher = Teacherx.IdTeacher,
                 NameTeacher = Teacherx.NameTeacher,
-                
+
                 Username = Teacherx.Username,
                 Password = Teacherx.Password
 
             };
 
             DataTeacher.Add(item);
+            return item;
+        }
+
+        [HttpPost]
+        public Student AddNewStudentinopenCourse([FromBody] Student Studentx)
+        {
+            var item = new Student
+            {
+                IdStudent = Studentx.IdStudent,
+                NameStudent = Studentx.NameStudent,
+
+                Username = Studentx.Username,
+                Password = Studentx.Password
+
+            };
+
+            DataStudent.Add(item);
             return item;
         }
 
@@ -139,6 +156,7 @@ namespace DemoRegApi.Controllers
             DataClass.Add(item);
             return item;
         }
+
 
         // [HttpPut("{id}")]
         // public openCourse EditUser(string id, [FromBody] Class Classx)
@@ -161,10 +179,8 @@ namespace DemoRegApi.Controllers
         public openCourse AddTeacherToOpenCourse(string id, [FromBody]  Teacher Teacherx)
         {
             var data = DataopenCourse.FirstOrDefault(it => it.IdCourse == id.ToString());
-
-
             var AA = data.Teacher.ToList();
-            Console.WriteLine(data.Teacher.ToList());
+            //Console.WriteLine(data.Teacher.ToList());
 
             var item = new Teacher
             {
@@ -173,21 +189,24 @@ namespace DemoRegApi.Controllers
                 Username = Teacherx.Username,
                 Password = Teacherx.Password
             };
-            //AA.Remove(item);
+            AA.Remove(item);
             AA.Add(item);
-            Console.WriteLine(AA.ToList());
-
+            // Console.WriteLine(AA.ToList());
 
             var item2 = new openCourse
             {
 
                 IdCourse = id.ToString(),
                 NameCourse = data.NameCourse,
-                Teacher = AA.ToArray(), 
+                Teacher = AA.ToArray(),
                 Students = data.Students
-            };
-             DataopenCourse.Remove(data);
+            }; 
+            DataopenCourse.Remove(data);
             DataopenCourse.Add(item2);
+           
+            //DataopenCourse.Add(data);
+
+
             return item2;
 
         }
@@ -246,7 +265,8 @@ namespace DemoRegApi.Controllers
                 score = Studentx.score,
                 MidScore = Studentx.MidScore,
                 FinalScore = Studentx.FinalScore,
-                TotalScore = Studentx.TotalScore
+                TotalScore = Studentx.TotalScore,
+                Grade = Studentx.Grade
 
             };
             AA.Remove(data2);

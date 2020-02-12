@@ -17,7 +17,7 @@ export class TeacherDetailPage implements OnInit {
   idstu:any;
   classbyid: dataOpenCourse;
   score: any[] = [];
-  grade: string[] = [];
+  gradex: string[] = [];
   midScore: any[] = [];
   finalScore: any[] = [];
   total: any[] = [];
@@ -36,6 +36,7 @@ export class TeacherDetailPage implements OnInit {
     'midScore':null,
     'finalScore':null,
     'totalScore':null,
+    'grade':null,
     'username':null,
     'password':null,
 
@@ -71,10 +72,12 @@ export class TeacherDetailPage implements OnInit {
       this.data.score = this.score[i];
       this.data.midScore =this.midScore[i];
       this.data.finalScore = this.finalScore[i];
+      this.data.grade = this.gradex[i];
+
       console.log(this.data);
 
     }
-    this.cal(this.total);
+  // this.cal(this.total);
 this.dataStu = this.data ;
 console.log(this.dataStu);
 
@@ -87,28 +90,43 @@ console.log(this.dataStu);
   }
 
   cal(total) {
+    for (let i = 0; i < this.score.length; i++) {
+      this.total[i] = parseInt(this.score[i]) + parseInt(this.midScore[i]) + parseInt(this.finalScore[i]);
+      this.xxx = this.total[i];
+      this.data.totalScore = this.xxx;
+      this.data.score = this.score[i];
+      this.data.midScore =this.midScore[i];
+      this.data.finalScore = this.finalScore[i];
+      //this.data.grade = this.gradex[i];
+
+      console.log(this.data);
+    }
+
     this.total = total;
     for (var i in total) {
-      this.grade[i] = this.total[i];
+      this.gradex[i] = this.total[i];
       console.log(this.total);
 
       if (this.total[i] >= 80) {
-        this.grade[i] = this.total[i];
-        this.grade[i] = "A";
+        this.gradex[i] = this.total[i];
+        this.gradex[i] = "A";
       } else if (this.total[i] >= 70) {
-        this.grade[i] = this.total[i];
-        this.grade[i] = "B";
+        this.gradex[i] = this.total[i];
+        this.gradex[i] = "B";
       } else if (this.total[i] >= 60) {
-        this.grade[i] = this.total[i];
-        this.grade[i] = "C";
+        this.gradex[i] = this.total[i];
+        this.gradex[i] = "C";
       } else if (this.total[i] >= 50) {
-        this.grade[i] = this.total[i];
-        this.grade[i] = "D";
+        this.gradex[i] = this.total[i];
+        this.gradex[i] = "D";
       } else {
-        this.grade[i] = "F";
+        this.gradex[i] = "F";
       }
+      this.data.grade = this.gradex[i];
 
     }
+    this.dataStu = this.data ;
+console.log(this.dataStu);
 
   }
 
@@ -117,6 +135,8 @@ console.log(this.dataStu);
     console.log(this.idstu);
     
 console.log(this.getid);
+console.log(this.dataStu);
+
 
     this.callapi.AddScoreToStudent(this.getid,this.idstu,this.dataStu).subscribe(it => {
       console.log(it);

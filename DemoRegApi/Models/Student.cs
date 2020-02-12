@@ -1,6 +1,8 @@
-namespace DemoRegApi.Models{
+namespace DemoRegApi.Models
+{
 
-    public class Student{
+    public class Student
+    {
         public string IdStudent { get; set; }
         public string NameStudent { get; set; }
 
@@ -9,11 +11,13 @@ namespace DemoRegApi.Models{
 
         public int FinalScore { get; set; }
         public int TotalScore { get; set; }
+        public string Grade { get; set; }
+
 
         public string Username { get; set; }
         public string Password { get; set; }
 
-      
+
 
 
     }

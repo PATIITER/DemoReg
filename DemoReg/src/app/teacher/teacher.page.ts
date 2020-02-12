@@ -27,7 +27,7 @@ export class TeacherPage implements OnInit {
     public router: Router,
     public activated: ActivatedRoute) {
 
-    this.getid = activated.snapshot.paramMap.get('_id');
+    this.getid = activated.snapshot.paramMap.get('id');
     console.log(this.getid);
     // callapi.GetdataTeacherId(this.getid).subscribe(it => {
     //    console.log(it);
@@ -61,12 +61,15 @@ export class TeacherPage implements OnInit {
         this.getAllCourse = it;
 
         console.log(this.getAllCourse[0].teacher[0].idTeacher);
+
       for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) {
         console.log(this.getAllCourse[index]);
         console.log(this.getAllCourse[index].teacher);
+
         for (let i = 0; i < Object.keys(this.getAllCourse[index].teacher).length; i++) {
          console.log(this.getAllCourse[index].teacher[i]);
-         if (this.getAllCourse[index].teacher[i].idTeacher == this.getid) {
+
+         if (this.getAllCourse[index].teacher[i].idTeacher == this.Teacherid.idTeacher) {
           this.getCourseTeacher.push(this.getAllCourse[index]);
            console.log(this.getCourseTeacher);
            
@@ -144,8 +147,8 @@ export class TeacherPage implements OnInit {
 
   }
 
-  GoPageAddClass(idTeacher) {
+  GoPageAddClass(id) {
 
-    this.router.navigate(['/add-class', { _id: idTeacher }])
+    this.router.navigate(['/add-class', { id }])
   }
 }

@@ -7,7 +7,7 @@
 <ion-content>
 
 
-  <!-- <form [formGroup]="data" (ngSubmit)="gopage(username)">  
+  <form [formGroup]="data" (ngSubmit)="gopage()">  
  <ion-item>
     <ion-label>Username</ion-label>
     <ion-input formControlName="username"></ion-input>
@@ -18,17 +18,17 @@
   </ion-item>
   
   <ion-button expand="block"  type="submit">Login</ion-button>
-  </form> -->
+  </form>
 
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>Username</ion-label>
     <ion-input [(ngModel)]="username"></ion-input>
   </ion-item>
 
 
   
-  <ion-button expand="block" (click)="gopage(username)" >Login</ion-button>
+  <ion-button expand="block" (click)="gopage(username)" >Login</ion-button> -->
 
-  <ion-button expand="block" (click)="gopageRegister()" >Register</ion-button>
+  <ion-button expand="block"  color="secondary" (click)="gopageRegister()" >Register</ion-button>
 
 </ion-content>

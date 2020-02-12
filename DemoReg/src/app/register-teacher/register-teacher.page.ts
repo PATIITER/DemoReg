@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CallApiService } from '../call-api.service';
 import { dataTeacher } from 'Models/teacher';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-register-teacher',
@@ -17,7 +18,8 @@ export class RegisterTeacherPage implements OnInit {
   constructor(
     public router: Router,
     public builder: FormBuilder,
-    public callapi:CallApiService) {
+    public callapi:CallApiService,
+    private Location: Location) {
 
     this.data = this.builder.group({
       'idTeacher': [null, Validators.required],
@@ -43,6 +45,7 @@ export class RegisterTeacherPage implements OnInit {
       
 
     });
+    this.Location.back();
 
     
   }

@@ -29,7 +29,7 @@ export class AddClassPage implements OnInit {
     public activated: ActivatedRoute,
     private Location: Location) {
 
-      this.getid = activated.snapshot.paramMap.get('_id');
+      this.getid = activated.snapshot.paramMap.get('id');
       console.log(this.getid);
       // callapi.GetdataTeacherById(this.getid).subscribe(it => {
       //   // console.log(it);

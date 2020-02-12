@@ -6,6 +6,7 @@ export class dataStudent{
     midScore:number;
     finalScore:number;
     totalScore:number;
+    grade:string;
     username:string;
     password:string;
     
