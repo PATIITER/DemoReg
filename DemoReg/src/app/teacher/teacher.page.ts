@@ -66,7 +66,7 @@ export class TeacherPage implements OnInit {
         console.log(this.getAllCourse[index].teacher);
         for (let i = 0; i < Object.keys(this.getAllCourse[index].teacher).length; i++) {
          console.log(this.getAllCourse[index].teacher[i]);
-         if (this.getAllCourse[index].teacher[i].idTeacher == this.getid) {
+         if (this.getAllCourse[index].teacher[i].idTeacher == this.Teacherid.idTeacher) {
           this.getCourseTeacher.push(this.getAllCourse[index]);
            console.log(this.getCourseTeacher);
            
@@ -144,8 +144,8 @@ export class TeacherPage implements OnInit {
 
   }
 
-  GoPageAddClass(idTeacher) {
+  GoPageAddClass(_id) {
 
-    this.router.navigate(['/add-class', { _id: idTeacher }])
+    this.router.navigate(['/add-class', { _id: this.Teacherid.username }])
   }
 }

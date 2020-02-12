@@ -40,8 +40,9 @@ export class AddClassPage implements OnInit {
   
       // });
       callapi.GetTeacherById(this.getid).subscribe(it=> {
+console.log(it);
 
-        this.Teacherid =it;
+        this.Teacherid = it;
         console.log(this.Teacherid);
        
     });
