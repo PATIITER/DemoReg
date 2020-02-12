@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace DemoRegApi.Models{
 
     public class openCourse{

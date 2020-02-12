@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { dataTeacher } from 'Models/teacher';
 import { TeacherPage } from '../teacher/teacher.page';
 import {Location} from '@angular/common';
+import { dataOpenCourse } from 'Models/openCourse';
 
 @Component({
   selector: 'app-add-class',
@@ -20,7 +21,10 @@ export class AddClassPage implements OnInit {
   getid: any;
   teacherbyid: dataTeacher;
   idclass:string;
+  nameclass:string;
   Teacherid:any;
+  dataopencourse:dataOpenCourse;
+  data:FormGroup;
 
   constructor(public callapi: CallApiService,
     public builder: FormBuilder,
@@ -28,8 +32,13 @@ export class AddClassPage implements OnInit {
     public router: Router,
     public activated: ActivatedRoute,
     private Location: Location) {
+      this.data = this.builder.group({
+        'idCourse': [null, Validators.required],
+        'nameCourse': [null, Validators.required]
+        
+      });
 
-      this.getid = activated.snapshot.paramMap.get('_id');
+      this.getid = activated.snapshot.paramMap.get('id');
       console.log(this.getid);
       // callapi.GetdataTeacherById(this.getid).subscribe(it => {
       //   // console.log(it);
@@ -64,11 +73,29 @@ console.log(it);
   }
 
 
-  addclass(id) {
-   this.idclass = id ;
-  console.log(this.idclass);
+  addclass() {
+    
+    
+    
+    console.log(this.data.value.idCourse);
+    this.dataopencourse =this.data.value;
+  
 
-  this.callapi.AddTeacherToOpenCourse(this.idclass,this.Teacherid).subscribe(it => {
+    // this.dataopencourse.idCourse =this.idclass;
+    // this.dataopencourse.nameCourse =this.nameclass;
+
+    
+    
+  console.log(this.dataopencourse);
+  
+
+  // this.callapi.AddCourse(this.dataopencourse).subscribe(it =>{
+  //   console.log(it);
+    
+  // });
+  
+
+  this.callapi.AddTeacherToOpenCourse(this.data.value.idCourse,this.Teacherid).subscribe(it => {
     console.log(it);
     
   });

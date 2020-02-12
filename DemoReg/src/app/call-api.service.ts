@@ -17,7 +17,11 @@ export class CallApiService {
 
   public GetAllTeacher() {
 
-    return this.Http.get<dataTeacher>(CallApiService.host + 'Teacher/GetTeacherAll');
+    return this.Http.get<dataTeacher>(CallApiService.host + 'openCourse/GetTeacherAll');
+  }
+  public GetAllStudent() {
+
+    return this.Http.get<dataStudent>(CallApiService.host + 'openCourse/GetStudentAll');
   }
   public GetAllClass() {
 
@@ -79,4 +83,15 @@ export class CallApiService {
     console.log(data);
     return this.Http.post<dataTeacher>(CallApiService.host + 'openCourse/AddNewTeacherinopenCourse/', data);
   }
+  
+  public AddNewStudentinopenCourse(data: dataStudent) {
+    console.log(data);
+    return this.Http.post<dataStudent>(CallApiService.host + 'openCourse/AddNewStudentinopenCourse/', data);
+  }
+  
+ 
+    public AddCourse(data: dataOpenCourse) {
+      console.log(data);
+      return this.Http.post<dataOpenCourse>(CallApiService.host + 'openCourse/AddCourse/', data);
+    }
 }
