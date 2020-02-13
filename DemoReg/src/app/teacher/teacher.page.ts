@@ -59,8 +59,10 @@ export class TeacherPage implements OnInit {
         
       // }
         this.getAllCourse = it;
+        console.log(this.getAllCourse);
+        
 
-        console.log(this.getAllCourse[0].teacher[0].idTeacher);
+        console.log(this.getAllCourse[0].teacher[0]);
 
       for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) {
         console.log(this.getAllCourse[index]);
@@ -68,6 +70,7 @@ export class TeacherPage implements OnInit {
 
         for (let i = 0; i < Object.keys(this.getAllCourse[index].teacher).length; i++) {
          console.log(this.getAllCourse[index].teacher[i]);
+
          if (this.getAllCourse[index].teacher[i].idTeacher == this.Teacherid.idTeacher) {
           this.getCourseTeacher.push(this.getAllCourse[index]);
            console.log(this.getCourseTeacher);

@@ -35,9 +35,9 @@ namespace DemoRegApi.Controllers
         };
         public static List<openCourse> DataopenCourse = new List<openCourse>
         {
-            // new openCourse { IdCourse = "001", NameCourse = " Business Administration",Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
-            // new openCourse { IdCourse = "002", NameCourse = "Computer Engineering",Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
-            // new openCourse { IdCourse = "003", NameCourse = "International Business" ,Teacher = DataTeacher.ToArray(),Students = DataStudent.ToArray()},
+            // new openCourse { IdCourse = "001", NameCourse = " Business Administration" },
+            // new openCourse { IdCourse = "002", NameCourse = "Computer Engineering"},
+            // new openCourse { IdCourse = "003", NameCourse = "International Business" },
 
         };
 
@@ -91,14 +91,17 @@ namespace DemoRegApi.Controllers
         [HttpPost]
         public openCourse AddCourse([FromBody] openCourse openCoursex)
         {
-            // var id = Guid.NewGuid().ToString();
+            var xxx = openCoursex.Teacher.ToArray();
+            var yyy = openCoursex.Students.ToArray();
+
+            var aa = DataClass.ToList();
             var item = new openCourse
             {
 
                 IdCourse = openCoursex.IdCourse,
                 NameCourse = openCoursex.NameCourse,
                 Teacher = openCoursex.Teacher,
-                Students = openCoursex.Students
+                Students = yyy.ToArray()
 
 
             };
@@ -121,6 +124,7 @@ namespace DemoRegApi.Controllers
             };
 
             DataTeacher.Add(item);
+
             return item;
         }
 
@@ -180,8 +184,11 @@ namespace DemoRegApi.Controllers
         {
             var data = DataopenCourse.FirstOrDefault(it => it.IdCourse == id.ToString());
             //var AA = data.Teacher.ToList();
-            var AA =data.Teacher.ToList();
-            //Console.WriteLine(data.Teacher.ToList());
+            var AA = data.Teacher.ToList();
+            Console.WriteLine(data.Teacher.ToList());
+            var BB = data.Students.ToList();
+            // Console.WriteLine(data.Students.ToList());
+
 
             var item = new Teacher
             {
@@ -192,7 +199,7 @@ namespace DemoRegApi.Controllers
             };
             //AA.Remove(item);
             AA.Add(item);
-          
+
             // Console.WriteLine(AA.ToList());
 
             var item2 = new openCourse
@@ -201,11 +208,12 @@ namespace DemoRegApi.Controllers
                 IdCourse = id.ToString(),
                 NameCourse = data.NameCourse,
                 Teacher = AA.ToArray(),
-                Students = data.Students
-            }; 
-           // DataopenCourse.Remove(data);
+                Students = BB.ToArray(),
+            };
+            DataopenCourse.Remove(data);
+            // DataopenCourse.Add(data);
             DataopenCourse.Add(item2);
-           
+
             //DataopenCourse.Add(data);
 
 
@@ -233,16 +241,18 @@ namespace DemoRegApi.Controllers
             AA.Add(item);
             Console.WriteLine(AA.ToList());
 
-
             var item2 = new openCourse
             {
 
                 IdCourse = id.ToString(),
                 NameCourse = data.NameCourse,
                 Teacher = data.Teacher,
-                Students = AA.ToArray()
+                Students = AA.ToArray(),
             };
+
+
             DataopenCourse.Remove(data);
+            // DataopenCourse.Remove(item2);
             DataopenCourse.Add(item2);
             return item2;
 

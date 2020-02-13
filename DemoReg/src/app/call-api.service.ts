@@ -69,7 +69,7 @@ export class CallApiService {
   }
   
   public AddStudentToOpenCourse(Id: string, data) {
-    return this.Http.put<dataOpenCourse>(CallApiService.host + 'openCourse/AddStudentToOpenCourse/' + Id, data);
+    return this.Http.put<any>(CallApiService.host + 'openCourse/AddStudentToOpenCourse/' + Id, data);
   }
   
   public GetOpenCourseById(Id: string) {

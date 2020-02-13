@@ -35,14 +35,19 @@
           <div>
 
             <ion-label>รหัสวิชา</ion-label>
-            <ion-select placeholder="Select One" formControlName="idCourse">
+            <ion-select placeholder="Select One" formControlName="idCourse" [(ngModel)]="idClass" (ionChange)="getAllClass(idClass)">
               <ion-select-option *ngFor="let d of dataClass" value="{{d.idClass}}">{{d.idClass}}</ion-select-option>
-            </ion-select>
+            </ion-select>    
+               
+             <ion-input formControlName="nameCourse" value="{{yyy}}"> ชื่อวิชา </ion-input>
 
-            <ion-label>รหัสวิชา</ion-label>
-            <ion-select placeholder="Select One" formControlName="nameCourse">
-              <ion-select-option *ngFor="let d of dataClass" value="{{d.nameClass}}">{{d.nameClass}}</ion-select-option>
-            </ion-select>
+            
+
+              <!-- <ion-item *ngFor="let item of a"></ion-item> -->
+    
+            <!-- <ion-select placeholder="Select One" formControlName="nameCourse">
+              <ion-select-option *ngFor="let d of dataClass" value="{{d.nameClass}}"> {{d.nameClass}}</ion-select-option>
+            </ion-select> -->
 
 
           </div>
@@ -53,6 +58,7 @@
         </ion-col>
       </ion-row>
     </form>
+    <ion-button size="large" expand="block" (click)="add()">บันทึก</ion-button>
     </ion-card>
  
 </ion-content>
