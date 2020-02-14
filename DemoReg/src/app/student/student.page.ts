@@ -111,19 +111,23 @@ export class StudentPage implements OnInit {
         // console.log(this.getAllCourse[index].students);
 
         for (let i = 0; i < Object.keys(this.getAllCourse[index].students).length; i++) {
-          //  console.log(this.getAllCourse[index].students[i]);
+            //console.log(this.getAllCourse[index].nameCourse);
 
-          if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent) {
+          if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent&&this.getAllCourse[index].idCourse == id) {
+            console.log(this.getAllCourse[index].students[i]);
+            
             this.getscore.push(this.getAllCourse[index].students[i]);
+            
             console.log(this.getscore);
 
 
             const alert = document.createElement('ion-alert');
-            alert.header = 'คะแนน';
+            alert.header = this.getAllCourse[index].nameCourse;
             alert.subHeader = 'ชื่อ ' + this.getAllCourse[index].students[i].nameStudent;
             alert.message = '  คะแนนสอบกลางภาค   :' + this.getAllCourse[index].students[i].midScore +'<br>'+
               'คะแนนสอบปลายภาค :' + this.getAllCourse[index].students[i].finalScore +'<br>'+
-              ' คะแนนรวม : ' + this.getAllCourse[index].students[i].totalScore;
+              ' คะแนนรวม : ' + this.getAllCourse[index].students[i].totalScore+'<br>'+
+              '<strong>'+this.getAllCourse[index].students[i].grade ;
             alert.buttons = ['OK'];
 
             document.body.appendChild(alert);

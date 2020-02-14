@@ -11,6 +11,8 @@
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
 
+  //--ion-background-color:#121212;
+
   /** secondary **/
   --ion-color-secondary: #0cd1e8;
   --ion-color-secondary-rgb: 12, 209, 232;
@@ -75,3 +77,60 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+// ion-input{
+//   --color:#FFF !important;
+//   --background :rgba(0,0,0,0)!important;
+//   --placeholder-color:#FFF !important;
+// }
+
+// .card-cover-content{
+//   z-index:1;
+//   position:inherit;
+//   top:20%;
+//   padding:40px;
+
+// background: rgb(2,0,36)  !important;;
+// background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,0,0,0.6082420694864048) 51%, rgba(0,212,255,0) 100%)  !important;;
+ 
+// }
+// ion-card{
+//   background-color:rgb(17, 17, 17) !important;
+//  }
+
+// ion-button{
+//   --color:#fff;
+//   --background:rgba(0,0,0,0);
+//   --background-focused:rgb(17, 17, 17) !important;
+//   --border-color: #FFF!important;
+//   --border-width: 1.5px !important;
+//   --border-radius: 60px !important;
+//   --padding-bottom:17px; 
+//   --padding-end:17px; 
+//   --padding-start: 17px; 
+//   --padding-top:17px; 
+//   --ripple-color :#FFF;
+//   --color-activated :#FFF ;
+  
+//   margin:20px;
+  
+//   }
+//   ion-label{
+//     font-size:36px;
+//     text-transform:capitalize;
+//   }
+//   ion-card-content, ion-label, ion-menu-button, ion-icon, ion-title, ion-item{
+//     color:#d6d6d6 !important;
+//   }
+//   * {
+//     font-family: 'SourceSansPro-Light';
+//     color: #fff !important;
+
+//   }
+//   ion-label.small-label{
+//     padding:15px;
+   
+//        font-size:24px;
+//        text-transform:capitalize;
+//      }
+   

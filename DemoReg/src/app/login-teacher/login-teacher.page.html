@@ -1,34 +1,49 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login-teacher</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+  <ion-icon name="people-outline"></ion-icon>
+<div class="aaa">
+  <ion-card >
+
+    <div class="BBB">
+
+    <ion-card-content >
 
 
-  <form [formGroup]="data" (ngSubmit)="gopage()">  
- <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input formControlName="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input formControlName="password"></ion-input>
-  </ion-item>
-  
-  <ion-button expand="block"  type="submit">Login</ion-button>
-  </form>
+      <form [formGroup]="data" (ngSubmit)="gopage()">
 
-  <!-- <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input [(ngModel)]="username"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label color="light" >Username</ion-label>
+          <ion-input formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light">Password</ion-label>
+          <ion-input formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit">Login</ion-button>
 
 
-  
-  <ion-button expand="block" (click)="gopage(username)" >Login</ion-button> -->
+      </form>
+      <ion-row class="ion-justify-content-center">
+        <ion-col>
+          <ion-button class="button1" (click)="gopageRegister()">Register Teacher</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="button1"  (click)="gopageRegisterStudent()">Register Student</ion-button>
+        </ion-col>
 
-  <ion-button expand="block"  color="secondary" (click)="gopageRegister()" >Register</ion-button>
+      </ion-row>
+
+
+
+    </ion-card-content>
+    </div>
+  </ion-card>
+</div>
+
+
+
+
 
 </ion-content>

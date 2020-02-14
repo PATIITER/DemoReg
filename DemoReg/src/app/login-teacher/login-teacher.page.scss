@@ -1,0 +1,120 @@
+.a{
+    background-color: #121212;
+    
+  
+}
+.b{
+    background-color: #1F1B24 ;
+}
+
+ion-content{
+--ion-background-color:#546E7A;
+}
+
+
+.day   { background: #eee; color: black; }
+.night { background: #333; color: white; }
+
+@media (prefers-color-scheme: dark) {
+  .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color:  #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  .day.light-scheme   { background: white; color:  #555; }
+  .night.light-scheme { background:  #eee; color: black; }
+}
+
+.day, .night {
+  display: inline-block;
+ 
+  vertical-align: middle;
+}
+ion-input{
+    --color:#FFF !important;
+    // --background :#1F1B24!important;
+    --placeholder-color:#FFF !important;
+  }
+  
+ion-card{
+    width: 50%;
+    margin: auto;
+    background-color:#607D8B;
+    --border-width: 1.5px !important;
+    --border-radius: 60px !important;
+    
+}
+ion-card-content{
+   // height: 90%;
+   
+    width: 90%;
+    margin: auto;
+    background-color:#607D8B;
+    --border-width: 1.5px !important;
+    --border-radius: 60px !important;
+}
+
+
+
+ion-item{
+    --background: #78909C;
+
+
+}
+ion-label{
+    //--color:#FFF;
+    font-size:36px;
+    text-transform:capitalize;
+}
+// ion-content{
+//     padding:200px;
+
+ion-button{
+    --color:#fff;
+    --background:rgba(0,0,0,0);
+    --background-focused:rgb(17, 17, 17) !important;
+    --border-color: #FFF!important;
+    --border-width: 1.5px !important;
+    --border-radius: 60px !important;
+    --padding-bottom:17px; 
+    --padding-end:17px; 
+    --padding-start: 17px; 
+    --padding-top:17px; 
+    --ripple-color :#FFF;
+    --color-activated :#FFF ;
+    
+    margin:20px;
+    
+    }
+.button1{
+   // #0cd1e8;
+    --color:#fff;
+    --background:rgba(0,0,0,0);
+    --background-focused:rgb(17, 17, 17) !important;
+    --border-color: #FFF!important;
+    --border-width: 1.5px !important;
+    --border-radius: 60px !important;
+    --padding-bottom:17px; 
+    --padding-end:17px; 
+    --padding-start: 17px; 
+    --padding-top:17px; 
+    --ripple-color :#FFF;
+    --color-activated :#FFF ;
+    --background-hover:#0cd1e8;
+    margin:20px;
+
+    }
+
+
+.aaa{
+    padding-top:300px;
+
+}
+.BBB{
+    padding-top:50px;
+    padding-bottom:50px;
+
+}
+  
+  
+
