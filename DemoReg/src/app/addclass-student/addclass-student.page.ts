@@ -18,6 +18,7 @@ export class AddclassStudentPage implements OnInit {
   idclass: string;
   getstudentid: dataStudent;
   datastu: any;
+  getCourseStudent: dataStudent[] = [];
 
   constructor(public callapi: CallApiService,
     public router: Router,
@@ -33,6 +34,8 @@ export class AddclassStudentPage implements OnInit {
     });
   }
 
+
+  FlagChk: boolean //ใช้เพื่อ check ว่าจะให้เ Push หรือไม่
   ngOnInit() {
     // this.callapi.GetAllTeacher().subscribe(it => {
     //   this.getAllDataTeacher = it
@@ -43,6 +46,28 @@ export class AddclassStudentPage implements OnInit {
     this.callapi.GetOpenCourseAll().subscribe(it => {
       this.getAllCourse = it
       console.log(this.getAllCourse);
+
+      for (let index = 0; index < Object.keys(this.getAllCourse).length; index++) { //Loop ตามจำนวนวิชาที่่เจอ
+        // console.log(this.getAllCourse[index]);
+        // console.log(this.getAllCourse[index].students);
+        this.FlagChk = true
+        for (let i = 0; i < Object.keys(this.getAllCourse[index].students).length; i++) {
+          //console.log(this.getAllCourse[index].students);
+
+          if (this.getAllCourse[index].students[i].idStudent == this.getstudentid.idStudent) {
+            //console.log("IN")
+            // this.aaa = this.getAllCourse[index];
+            // console.log(this.aaa.students);
+            // this.getCourseStudent.reduce(this.getAllCourse[index]);
+            //console.log(this.getAllCourse[index]);
+            this.FlagChk = false
+          }
+        }
+        if (this.FlagChk == true) {
+          this.getCourseStudent.push(this.getAllCourse[index]);
+          console.log(this.getCourseStudent);
+        }
+      }
 
     });
 

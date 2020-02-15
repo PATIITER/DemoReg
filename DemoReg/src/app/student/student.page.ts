@@ -62,7 +62,7 @@ export class StudentPage implements OnInit {
         for (let i = 0; i < Object.keys(this.getAllCourse[index].students).length; i++) {
           //  console.log(this.getAllCourse[index].students[i]);
 
-          if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent) {
+          if (this.getAllCourse[index].students[i].idStudent == this.getstudentByid.idStudent ) {
 
             // this.aaa = this.getAllCourse[index];
             // console.log(this.aaa.students);
