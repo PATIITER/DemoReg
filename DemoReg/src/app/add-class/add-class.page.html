@@ -1,64 +1,65 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>add-class</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-row *ngIf="Teacherid != null">
+    <ion-row justify-content-center *ngIf="Teacherid != null">
 
 
-      <ion-col text-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
         Id :
         {{Teacherid.idTeacher}}
       </ion-col>
-      <ion-col text-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
         name :
         {{Teacherid.nameTeacher}}
       </ion-col>
     </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+
+  <ion-card >
+    <ion-header>
+      <ion-row justify-content-center>
+        <ion-col></ion-col>
+
+
+        <ion-col align-self-center>
+
+          <h3>เพิ่มวิชา</h3>
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-header>
+
+    <form [formGroup]="data" (ngSubmit)="addclass()">
+
+
+
+      <ion-item>
+        <ion-label>รหัสวิชา</ion-label>
+        <ion-select interface="popover"   placeholder="Select One" formControlName="idCourse" [(ngModel)]="idClass" (ionChange)="getAllClass(idClass)">
+          <ion-select-option *ngFor="let d of dataClass" value="{{d.idClass}}">{{d.idClass}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="nameCourse" value="{{yyy}}"> ชื่อวิชา : </ion-input>
+      </ion-item>
+
+      <ion-button class="button1" expand="block" type="submit">บันทึก</ion-button>
+
+
+
+    </form>
 
   </ion-card>
 
-
-
-
- 
-    <ion-card class="ion-padding">
-      <form [formGroup]="data" (ngSubmit)="addclass()">
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>เพิ่มวิชา</h3>
-          </div>
-          <div>
-
-            <ion-label>รหัสวิชา</ion-label>
-            <ion-select placeholder="Select One" formControlName="idCourse" [(ngModel)]="idClass" (ionChange)="getAllClass(idClass)">
-              <ion-select-option *ngFor="let d of dataClass" value="{{d.idClass}}">{{d.idClass}}</ion-select-option>
-            </ion-select>    
-               
-             <ion-input formControlName="nameCourse" value="{{yyy}}"> ชื่อวิชา </ion-input>
-
-            
-
-              <!-- <ion-item *ngFor="let item of a"></ion-item> -->
-    
-            <!-- <ion-select placeholder="Select One" formControlName="nameCourse">
-              <ion-select-option *ngFor="let d of dataClass" value="{{d.nameClass}}"> {{d.nameClass}}</ion-select-option>
-            </ion-select> -->
-
-
-          </div>
-          <div>
-            <ion-button size="large" expand="block" type="submit">บันทึก</ion-button>
-            <!-- <ion-button size="large" expand="block" (click)="addclass(idclass,nameclass)">บันทึก</ion-button> -->
-          </div>
-        </ion-col>
-      </ion-row>
-    </form>
-    <ion-button size="large" expand="block" (click)="add()">บันทึก</ion-button>
-    </ion-card>
- 
 </ion-content>

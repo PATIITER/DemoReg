@@ -90,8 +90,10 @@ export class AddClassPage implements OnInit {
     })
   }
 
+  
 
-  getAllClass(i) {
+  
+    getAllClass(i) {
     this.xxx = i;
     for (let index = 0; index < Object.keys(this.dataClass).length; index++) {
       if(this.xxx == this.dataClass[index].idClass){
@@ -105,6 +107,8 @@ export class AddClassPage implements OnInit {
 
 
   }
+
+  
   // yourFunction(id){
 
   //   var find = this.dataClass.find(it=>it.dataClass.idclass = id);

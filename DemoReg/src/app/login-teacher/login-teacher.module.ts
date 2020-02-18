@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { LoginTeacherPageRoutingModule } from './login-teacher-routing.module';
 
 import { LoginTeacherPage } from './login-teacher.page';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   imports: [
@@ -14,6 +16,7 @@ import { LoginTeacherPage } from './login-teacher.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    FontAwesomeModule,
     LoginTeacherPageRoutingModule
   ],
   declarations: [LoginTeacherPage]

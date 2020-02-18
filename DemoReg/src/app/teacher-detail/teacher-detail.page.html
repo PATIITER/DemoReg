@@ -15,7 +15,7 @@
       <ion-row>
         <table class="fixed_header">
           <thead>
-            <tr>
+            
               <th>รหัสนักเรียน</th>
               <th>ชื่อนักเรียน</th>
               <th>คะแนนเก็บ</th>
@@ -26,7 +26,7 @@
               <th>บันทึกข้อมูล</th>
 
               <th width="5%">ดูข้อมูล</th>
-            </tr>
+            
           </thead>
           <tbody *ngIf="classbyid != null">
             <tr *ngFor="let d of classbyid.students; let i = index">
@@ -48,10 +48,10 @@
                 <ion-input [(ngModel)]="gradex[i]"></ion-input>
               </td>
               <td>
-                <ion-button color="secondary" (click)="cal(total)">คำนวณเกรด</ion-button>
+                <ion-button (click)="cal(total)">คำนวณเกรด</ion-button>
               </td>
               <td>
-                <ion-button color="secondary" (click)="adddata(d.idStudent)">บันทึกข้อมูล</ion-button>
+                <ion-button  (click)="adddata(d.idStudent)">บันทึกข้อมูล</ion-button>
               </td>
             </tr>
           </tbody>

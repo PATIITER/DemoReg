@@ -1,0 +1,44 @@
+ion-button{
+    --color:#fff;
+    --background:rgba(120, 144, 156, 0.562);
+    --background-focused:rgb(17, 17, 17) !important;
+    --border-color: #FFF!important;
+    --border-width: 1.5px !important;
+    --border-radius: 60px !important;
+    --padding-bottom:17px; 
+    --padding-end:17px; 
+    --padding-start: 17px; 
+    --padding-top:17px; 
+    --ripple-color :#FFF;
+    --color-activated :#FFF ;
+    --background-hover:linear-gradient(-135deg, #8294c7, #4158d0);
+    
+    margin:20px;
+    
+    }
+    ion-card-header{
+        //--background: rgb(228, 229, 153);
+        background: #9b91a3;
+          background: -webkit-linear-gradient(-135deg, #8294c7, #4158d0);
+          background: -o-linear-gradient(-135deg, #8294c7, #4158d0);
+          background: -moz-linear-gradient(-135deg, #8294c7, #4158d0);
+          background: linear-gradient(-135deg, #8294c7, #4158d0);
+      }
+      .button1{
+           // #0cd1e8;
+            --color:#fff;
+            //--background:rgba(0,0,0,0);
+            --background-focused:rgb(17, 17, 17) !important;
+            --border-color: #FFF!important;
+            --border-width: 1.5px !important;
+            --border-radius: 60px !important;
+            --padding-bottom:17px; 
+            --padding-end:17px; 
+            --padding-start: 17px; 
+            --padding-top:17px; 
+            --ripple-color :#FFF;
+            --color-activated :#FFF ;
+            --background-hover:linear-gradient(-135deg, #8294c7, #4158d0);
+            margin:20px;
+        
+            }

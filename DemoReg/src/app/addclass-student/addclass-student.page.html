@@ -1,6 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addclass-student</ion-title>
+    <ion-row justify-content-center *ngIf="getstudentid != null">
+
+
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        Id :
+          {{getstudentid.idStudent}}
+      </ion-col>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        name :
+        {{getstudentid.nameStudent}}
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 

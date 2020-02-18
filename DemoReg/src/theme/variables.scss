@@ -2,6 +2,7 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -11,7 +12,7 @@
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
 
-  //--ion-background-color:#121212;
+  //--ion-background-color:rgba(255, 255, 255, 0.103);
 
   /** secondary **/
   --ion-color-secondary: #0cd1e8;
@@ -78,59 +79,60 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-// ion-input{
-//   --color:#FFF !important;
-//   --background :rgba(0,0,0,0)!important;
-//   --placeholder-color:#FFF !important;
-// }
 
-// .card-cover-content{
-//   z-index:1;
-//   position:inherit;
-//   top:20%;
-//   padding:40px;
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
 
-// background: rgb(2,0,36)  !important;;
-// background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,0,0,0.6082420694864048) 51%, rgba(0,212,255,0) 100%)  !important;;
- 
-// }
-// ion-card{
-//   background-color:rgb(17, 17, 17) !important;
-//  }
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
 
-// ion-button{
-//   --color:#fff;
-//   --background:rgba(0,0,0,0);
-//   --background-focused:rgb(17, 17, 17) !important;
-//   --border-color: #FFF!important;
-//   --border-width: 1.5px !important;
-//   --border-radius: 60px !important;
-//   --padding-bottom:17px; 
-//   --padding-end:17px; 
-//   --padding-start: 17px; 
-//   --padding-top:17px; 
-//   --ripple-color :#FFF;
-//   --color-activated :#FFF ;
-  
-//   margin:20px;
-  
-//   }
-//   ion-label{
-//     font-size:36px;
-//     text-transform:capitalize;
-//   }
-//   ion-card-content, ion-label, ion-menu-button, ion-icon, ion-title, ion-item{
-//     color:#d6d6d6 !important;
-//   }
-//   * {
-//     font-family: 'SourceSansPro-Light';
-//     color: #fff !important;
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
 
-//   }
-//   ion-label.small-label{
-//     padding:15px;
-   
-//        font-size:24px;
-//        text-transform:capitalize;
-//      }
-   
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+}
+@-webkit-keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 70px 25px;
+    opacity: 0;
+  }
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 70px 25px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+
+

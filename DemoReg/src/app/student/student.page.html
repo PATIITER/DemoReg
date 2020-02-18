@@ -1,39 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>student</ion-title>
+    <ion-row justify-content-center *ngIf="getstudentByid != null">
+
+
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        Id :
+        {{getstudentByid.idStudent}}
+      </ion-col>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        name :
+        {{getstudentByid.nameStudent}}
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-card>
-    <ion-row>
 
+  <ion-row>
 
-      <div *ngIf="getstudentByid != null">
+    <ion-col>
+      <ion-item lines="none">
+        <ion-button slot="end" size="default" (click)="GoPageAddClassstudent(getstudentByid.idStudent)">
+          + เพิ่ม
+        </ion-button>
+      </ion-item>
+    </ion-col>
 
-        <ion-col text-center>
-          Id :
-          {{getstudentByid.idStudent}}
-        </ion-col>
-        <ion-col text-center>
-          name :
-          {{getstudentByid.nameStudent}}
-        </ion-col>  </div>
-       
-    
-      <ion-col>
-        <ion-item lines="none">
-          <ion-button slot="end" size="default" (click)="GoPageAddClassstudent(getstudentByid.idStudent)">
-            + เพิ่ม
-          </ion-button>
-        </ion-item>
-      </ion-col>
-    
+  </ion-row>
 
-
-    </ion-row>
-  </ion-card>
 
   <ion-card class="ion-padding">
     <ion-row>
@@ -49,7 +45,7 @@
         <table class="fixed_header">
           <thead>
             <tr>
-              
+
               <th>รหัสวิชา</th>
               <th>ชื่อวิชา</th>
 
@@ -59,47 +55,24 @@
 
             </tr>
           </thead>
-          <!-- <tbody *ngIf="dataTeacher != null">
-              <tr *ngFor="let d of dataTeacher">
-                
-                <td>{{ d.idTeacher }}</td>
-                <td>{{ d.nameTeacher }}</td>
-                <td>{{ d.class }}</td>
-                
-                
-              </tr>
-            </tbody> -->
-          <!-- <tbody *ngIf="getAllDataTeacher != null"> -->
-            <tbody  *ngIf="getCourseStudent != null">
-              
-            <tr *ngFor ="let A of getCourseStudent" >
-              
 
-                
-             
-              
+          <tbody *ngIf="getCourseStudent != null">
 
-
-              <!-- <td>{{ A.idTeacher }}</td>
-              <td>{{ A.nameTeacher}}</td> -->
-
-              <td >
+            <tr *ngFor="let A of getCourseStudent">
+              <td>
                 {{A.idCourse}}
               </td>
-              <td >
+              <td>
                 {{A.nameCourse}}
               </td>
-              
-
 
               <td>
-                <ion-button color="secondary" (click)="presentAlert(A.idCourse)">ดูข้อมูล</ion-button>
+                <ion-button (click)="presentAlert(A.idCourse)">ดูข้อมูล</ion-button>
               </td>
- 
-            </tr >
+
+            </tr>
           </tbody>
         </table>
-
       </ion-row>
     </ion-grid>
   </ion-card>

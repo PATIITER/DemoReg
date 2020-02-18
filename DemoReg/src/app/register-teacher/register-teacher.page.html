@@ -1,35 +1,95 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <!-- <form [formGroup]="data" (ngSubmit)="register()">
 
-<ion-content class="ion-padding">
-  <form [formGroup]="data" (ngSubmit)="register()">
-    <ion-card class="ion-padding">
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Register</h3>
-          </div>
-          <div>
-            <ion-label>Id</ion-label>
-            <ion-input class="input1" type="text" placeholder="Id" formControlName="idTeacher"></ion-input>
-            <ion-label>name</ion-label>
-            <ion-input class="input1" type="text" placeholder="name" formControlName="nameTeacher"></ion-input>
-            <ion-label>username</ion-label>
-            <ion-input class="input1" type="text" placeholder="username" formControlName="username"></ion-input>
-            <ion-label>password</ion-label>
-            <ion-input class="input1" type="text" placeholder="password" formControlName="password"></ion-input>
+    <div class="aaa">
+      <ion-card>
+        <h3 class="CCC"  text-center>ลงทะเบียน อาจารย์</h3>
+        <div class="BBB">
+          <ion-card-content>
+            <ion-item>
+              <ion-label color="light">Id</ion-label>
+              <ion-input type="text" formControlName="idTeacher"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="light">name</ion-label>
+              <ion-input type="text" formControlName="nameTeacher"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="light">username</ion-label>
+              <ion-input type="text" formControlName="username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="light">password</ion-label>
+              <ion-input type="text" formControlName="password"></ion-input>
+            </ion-item>
 
-          </div>
-          <div>
-            <ion-button size="large" expand="block" type="submit">บันทึก</ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </form>
+            
+              <ion-button expand="block" type="submit">บันทึก</ion-button>
+          
+
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+  </form> -->
+
+
+  <body>
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+         
+
+          <form class="login100-form validate-form" [formGroup]="data" (ngSubmit)=" register()">
+            <span class="login100-form-title">
+              sign up
+            </span>
+            <div class="wrap-input100 validate-input">
+              <ion-input class="input100" type="text" placeholder="id" formControlName="idTeacher"></ion-input>
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+              <ion-input class="input100" type="text" placeholder="name" formControlName="nameTeacher"></ion-input>
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+              <ion-input class="input100" type="text" placeholder="Username" formControlName="username"></ion-input>
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+              <ion-input class="input100" type="password" placeholder="Password" formControlName="password"></ion-input>
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <div class="container-login100-form-btn">
+              <button class="login100-form-btn" type="submit">
+                sign up
+              </button>
+            </div>
+
+          
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+
 
 
 
