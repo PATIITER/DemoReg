@@ -49,11 +49,7 @@ namespace DemoRegApi
             {
                 app.UseDeveloperExceptionPage();
             }
-               app.Run(async (context) =>
-            {
-                string greeting = Configuration["My:Greeting"];
-                await context.Response.WriteAsync(greeting);
-            });
+    
             else
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
